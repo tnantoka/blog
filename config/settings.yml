@@ -1,0 +1,13 @@
+site:
+  title: 'title'
+copyright:
+  label: '&copy; 2014 name'
+  url: 'http://example.com/'
+exception_notification:
+  prefix: '[Blog] '
+  sender: '"notifier" <notifier@example.com>'
+  recipients: 
+    - 'recipient@example.com'
+tweet:
+  prefix: 'New post'
+  suffix: '@tnantoka'

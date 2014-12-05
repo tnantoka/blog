@@ -1,0 +1,45 @@
+doctype html
+html lang="#{I18n.locale}"
+  head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title= "#{content_for?(:title) ? "#{yield(:title)} - " : ''}#{Settings.site.title}"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    style= Diffy::CSS
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    .container
+      header
+        .pull-right
+          = form_tag :search_posts, method: :get do
+            = text_field_tag :q, params[:q], placeholder: t('.search')
+        ul.list-inline
+          li= link_to t('.home'), :root, class: "#{'link-plain' if home_page?}"
+          li= link_to t('.posts'), :posts, class: "#{'link-plain' if posts_page?}"
+          - if user_signed_in?
+            li= link_to t('.attachments'), :attachments, class: "#{'link-plain' if attachments_page?}"
+            li= link_to t('.new'), :new_post, class: "#{'link-plain' if new_post_page?}"
+
+      hr
+
+      - if flash[:notice].present?
+        .alert.alert-success
+          = flash[:notice]
+      - if flash[:alert].present?
+        .alert.alert-danger
+          = flash[:alert]
+      = yield
+
+      hr
+
+      footer.text-muted
+        ul.list-inline.pull-right
+          - if user_signed_in?
+            li= link_to t('.sign_out'), :destroy_user_session, method: :delete, class: 'link-plain', data: { disable_with: t('shared.please_wait') }
+          - else
+            li= link_to_unless_current t('.admin'), :new_user_session, class: 'link-plain'
+        ul.list-inline
+          li= link_to Settings.copyright.label.html_safe, Settings.copyright.url, class: 'link-plain'
+          li= link_to t('.feed'), posts_path(format: :atom),class: 'link-plain' 
+

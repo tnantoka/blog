@@ -1,0 +1,27 @@
+section
+  h1.post-title= link_to post.title, post, class: "#{'link-plain' if post_page?}"
+  ul.list-inline.text-muted
+    li= timeago(post.updated_at)
+    li= "#{post.count}#{t('.characters')}"
+    li= draft_label(post)
+  - if post_page? && post.toc.present?
+    .panel.panel-default.panel-no-shadow.toc
+      .panel-heading.toc-heading
+        h4.panel-title
+          a data-toggle="collapse" href="#toc"= t('.toc')
+      #toc class="panel-collapse collapse"
+        .panel-body== post.toc
+  .post-content== post.render
+  .clearfix
+    - if user_signed_in?
+      ul.list-inline.pull-right
+        li= link_to t('.edit'), edit_post_path(post), class: 'js_edit_post', title: 'e'
+        li= link_to t('.delete'), post, method: :delete, data: { confirm: t('shared.are_you_sure') }
+    - if post_page?
+      ul.list-inline
+        li= link_to t('.tweet'), tweet_url(post), target: '_blank'
+        li= link_to t('.permalink'), post
+        li= link_to t('.raw'), post_path(post, format: :md)
+        - if post.versions.present?
+          li= link_to t('.versions'), post_versions_path(post)
+

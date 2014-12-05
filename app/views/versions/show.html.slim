@@ -1,0 +1,12 @@
+ol.breadcrumb
+  li= link_to @post.title, @post
+  li= link_to t('posts.post.versions'), post_versions_path(@post)
+  li.active= link_to "#{@version.number} #{@version.reify.title}", post_version_path(@post, @version), class: 'link-plain'
+.row
+  .col-sm-6
+    == @version.reify.render
+  .col-sm-6
+    .panel.panel-default.panel-no-shadow
+      == @version.diff.present? ? @version.diff : t('.no_diffs_found')
+     
+

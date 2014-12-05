@@ -1,0 +1,4 @@
+ol.breadcrumb
+  li= link_to @post.title, @post
+  li.active= link_to t('posts.post.edit'), edit_post_path(@post), class: 'link-plain'
+= render 'form' 

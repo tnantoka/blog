@@ -1,0 +1,75 @@
+ja:
+  shared:
+    ago: '前'
+    draft: '下書き'
+    template: 'テンプレート'
+    are_you_sure: 'よろしいですか？' 
+    please_wait: 'お待ちください...'
+
+  layouts:
+    application:
+      home: ホーム
+      posts: 投稿一覧
+      attachments: ファイル
+      new: 新規
+      admin: 管理
+      sign_out: ログアウト
+      search: 検索
+      feed: フィード
+
+  posts:
+    post:
+      edit: 編集
+      delete: 削除
+      characters: 文字
+      versions: 編集履歴
+      permalink: パーマリンク
+      raw: ソース
+      tweet: ツイート
+      toc: 目次
+    index:
+      all: 全ての投稿
+      published: 公開済み
+      drafts: 下書き
+      templates: テンプレート
+
+  attachments:
+    index:
+      id: ID
+      delete: 削除
+      posts: 投稿
+      file_name: ファイル名
+      action: 操作
+
+  versions:
+    show:
+      no_diffs_found: 差分はありません
+
+  devise:
+    sessions:
+      new:
+        log_in: ログイン
+
+  flash:
+    created: '%{model}は正常に作成されました'
+    updated: '%{model}は正常に更新されました'
+    destroyed: '%{model}は正常に削除されました'
+
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        remember_me: ログイン状態を記憶
+      post:
+        title: タイトル
+        content: 本文
+        published: 公開
+        template: テンプレート
+      attachment:
+        file: ファイル
+    models:
+      user: ユーザー
+      post: 投稿
+      attachment: 添付ファイル
+

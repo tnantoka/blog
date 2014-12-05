@@ -1,0 +1,75 @@
+en:
+  shared:
+    ago: ' ago'
+    draft: 'Draft'
+    template: 'テンプレート'
+    are_you_sure: 'Are you sure?' 
+    please_wait: 'Please wait...'
+
+  layouts:
+    application:
+      home: Home
+      posts: Posts
+      attachments: Attachments
+      new: New
+      admin: Admin
+      sign_out: Sign out
+      search: Search
+      feed: Feed
+
+  posts:
+    post:
+      edit: Edit
+      delete: Delete
+      characters: characters
+      versions: Versions
+      permalink: Permalink
+      raw: Raw
+      tweet: Tweet
+      toc: TOC
+    index:
+      all: All posts
+      published: Published
+      drafts: Drafts
+      templates: Templates
+
+  attachments:
+    index:
+      id: ID
+      delete: Delete
+      posts: Posts
+      file_name: file_name
+      action: Action
+
+  versions:
+    show:
+      no_diffs_found: No diffs found.
+
+  devise:
+    sessions:
+      new:
+        log_in: Log in
+
+  flash:
+    created: '%{model} was successfully created.'
+    updated: '%{model} was successfully updated.'
+    destroyed: '%{model} was successfully destroyed.'
+
+  activerecord:
+    attributes:
+      user:
+        email: E-mail
+        password: Password
+        remember_me: Remember me
+      post:
+        title: Title
+        content: Content
+        published: Published
+        template: Template
+      attachment:
+        file: File
+    models:
+      user: User
+      post: Post
+      attachment: Attachment
+

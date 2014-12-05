@@ -1,0 +1,8 @@
+- @posts.each do |post|
+  h2.search-title 
+    = link_to highlight(post.title, params[:q]), post
+    small
+      =< timeago(post.updated_at)
+      =< draft_label(post)
+  = highlight(post.content_text, params[:q])
+= paginate @posts

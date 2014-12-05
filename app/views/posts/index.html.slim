@@ -1,0 +1,22 @@
+- if user_signed_in?
+  ul.list-inline
+    li
+      p= link_to_unless_current t('.all'), :posts
+    li
+      p= link_to_unless_current t('.published'), :published_posts
+    li
+      p= link_to_unless_current t('.drafts'), :draft_posts
+    li
+      p= link_to_unless_current t('.templates'), :template_posts
+
+- @posts.each do |post|
+  h2.list-title 
+    = link_to post.title, post
+    small
+      =< timeago(post.updated_at)
+      =< draft_label(post)
+      - if user_signed_in?
+        =< link_to t('posts.post.edit'), edit_post_path(post)
+        =< link_to t('posts.post.delete'), post, method: :delete, data: { confirm: t('shared.are_you_sure') }
+
+= paginate @posts

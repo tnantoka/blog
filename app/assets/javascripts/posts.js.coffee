@@ -1,0 +1,62 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$ ->
+  $('#post_content').autosize()
+  prettyPrint()
+  preview()
+  initDropzone()
+  initMousetrap()
+
+initDropzone = ->
+  $('.js_post_content_group').dropzone
+    url: '/attachments.json'
+    paramName: 'attachment[file]'
+    previewsContainer: false
+    params:
+      authenticity_token: $('meta[name=csrf-token]').prop('content')
+    drop: ->
+      NProgress.start()
+    success: (file, json) ->
+      text = if json.is_image
+        "[![](#{json.path})](#{json.path})"
+      else
+        "[#{json.name}](#{json.path})"
+      $('#post_content').selection('insert', {text: text, mode: 'after'})
+      preview()
+    complete: ->
+      NProgress.done()
+
+initMousetrap = ->
+  Mousetrap.bind 'e', ->
+    Turbolinks.visit $('.js_edit_post').prop('href')
+
+  Mousetrap.bindGlobal 'mod+s', (e) ->
+    if /post_title|post_content/.test(e.target.id)
+      e.preventDefault()
+      $('.js_submit_post').click()
+
+preview = _.throttle(->
+  return unless $('#post_title, #post_content').length
+  params =
+    post:
+      title: $('#post_title').val()
+      content: $('#post_content').val()
+  $.post '/posts/preview', params, (json) ->
+    $('.js_preview_title').html(json.title)
+    $('.js_preview_content').html(json.content)
+    $('.js_preview_count').html(json.count)
+    prettyPrint()
+, 3000)
+
+$(document).on 'keyup', '#post_title, #post_content', preview
+
+$(document).on 'change', '.js_post_template', ->
+  id = $(this).val()
+  if id
+    $.get "/posts/#{id}.md", (data) ->
+      if data
+        $('#post_content').val(data)
+
+

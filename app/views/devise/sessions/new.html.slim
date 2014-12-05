@@ -1,0 +1,13 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control', autofocus: true, required: Rails.env.production?
+  .form-group
+    = f.label :password 
+    = f.password_field :password, class: 'form-control', autocomplete: 'off', required: Rails.env.production?
+  - if devise_mapping.rememberable? 
+    .checkbox
+      label
+        = f.check_box :remember_me, checked: true
+        = t('activerecord.attributes.user.remember_me')
+  = f.submit t('.log_in'), class: 'btn btn-default', data: { disable_with: t('shared.please_wait') }
