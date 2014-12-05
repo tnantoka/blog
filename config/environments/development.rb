@@ -50,5 +50,4 @@ Rails.application.configure do
     Bullet.add_footer = true
     Bullet.stacktrace_includes = nil
   end
-
 end
