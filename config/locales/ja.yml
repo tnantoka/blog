@@ -42,8 +42,6 @@ ja:
       action: 操作
 
   versions:
-    index:
-      current: 最新版
     show:
       no_diffs_found: 差分はありません
 

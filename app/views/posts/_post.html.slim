@@ -19,8 +19,7 @@ section
         li= link_to t('.delete'), post, method: :delete, data: { confirm: t('shared.are_you_sure') }
     - if post_page?
       ul.list-inline
-        li= link_to t('.tweet'), tweet_url(post), target: '_blank'
+        li= link_to t('.versions'), post_versions_path(post)
         li= link_to t('.permalink'), post
         li= link_to t('.raw'), post_path(post, format: :md)
-        li= link_to t('.versions'), post_versions_path(post)
-
+        li= link_to t('.tweet'), tweet_url(post), target: '_blank'

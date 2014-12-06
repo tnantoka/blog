@@ -42,8 +42,6 @@ en:
       action: Action
 
   versions:
-    index:
-      current: Current
     show:
       no_diffs_found: No diffs found.
 
