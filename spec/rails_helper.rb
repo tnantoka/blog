@@ -13,6 +13,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
 #require 'capybara/poltergeist'
+require 'webmock/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -65,6 +66,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseRewinder.clean_all
     Rails.cache.clear
+    stub_request(:get, 'tnantoka.com').to_return(body: '<title>tnantoka.com</title>')
   end
 
   config.after(:each) do

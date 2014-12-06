@@ -11,6 +11,12 @@
     .col-sm-6
       h1.post-title.preview-title.js_preview_title
   .row
+    .col-sm-12 
+      .btn-toolbar.post-toolbar
+        .btn-group
+          a.btn.btn-default.btn-sm.js_insert_link href="#"
+            span.glyphicon.glyphicon-link
+  .row
     .col-sm-6
       .form-group.js_post_content_group
         = f.text_area :content, class: 'form-control', autofocus: @post.title.present?, placeholder: t('activerecord.attributes.post.content'), required: Rails.env.production?

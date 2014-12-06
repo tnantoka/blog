@@ -44,6 +44,10 @@
   @extend h4;
 }
 
+.post-toolbar {
+  margin-bottom: 10px;
+}
+
 .post-content {
   table {
     @extend .table;

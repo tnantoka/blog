@@ -57,6 +57,7 @@ group :test do
   gem 'database_rewinder', '~> 0.4.1'
   gem 'faker', '~> 1.4.3'
   gem 'coveralls', '~> 0.7.2', require: false
+  gem 'webmock', '~> 1.20.4'
 end
 
 gem 'devise', '~> 3.4.1'
@@ -75,6 +76,7 @@ gem 'rails_config', '~> 0.4.2'
 gem 'annotate', '~> 2.6.5'
 gem 'paper_trail', '~> 3.0.6'
 gem 'diffy', '~> 3.0.7'
+gem 'metainspector', '~> 4.0.0'
 
 gem 'rails-assets-jquery-autosize', '~> 1.18.15'
 gem 'rails-assets-google-code-prettify', '~> 1.0.3'

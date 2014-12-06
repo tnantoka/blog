@@ -23,7 +23,7 @@ initDropzone = ->
         "[![](#{json.path})](#{json.path})"
       else
         "[#{json.name}](#{json.path})"
-      $('#post_content').selection('insert', {text: text, mode: 'after'})
+      insert(text)
       preview()
     complete: ->
       NProgress.done()
@@ -50,6 +50,9 @@ preview = _.throttle(->
     prettyPrint()
 , 3000)
 
+insert = (text) ->
+  $('#post_content').selection('insert', {text: text, mode: 'after'})
+
 $(document).on 'keyup', '#post_title, #post_content', preview
 
 $(document).on 'change', '.js_post_template', ->
@@ -59,4 +62,12 @@ $(document).on 'change', '.js_post_template', ->
       if data
         $('#post_content').val(data)
 
-
+$(document).on 'click', '.js_insert_link', (e) ->
+  e.preventDefault()
+  url = prompt('URL')
+  if url
+    params =
+      url: url
+    $.post '/links', params, (json) ->
+      insert("[#{json.title}](#{json.url})")
+      

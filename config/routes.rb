@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     end
   end
   resources :attachments, only: [:index, :new, :create, :destroy]
+  resources :links, only: [:create]
 end
