@@ -22,6 +22,5 @@ section
         li= link_to t('.tweet'), tweet_url(post), target: '_blank'
         li= link_to t('.permalink'), post
         li= link_to t('.raw'), post_path(post, format: :md)
-        - if post.versions.present?
-          li= link_to t('.versions'), post_versions_path(post)
+        li= link_to t('.versions'), post_versions_path(post)
 
