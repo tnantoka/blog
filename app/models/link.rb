@@ -2,8 +2,8 @@ class Link
   class << self
     def fetch_title(url)
       meta = fetch(url)
-      title = meta.try(:title)
-      Rails.cache.delete(url) if meta.nil?
+      title = meta.try(:title).to_s
+      Rails.cache.delete(url) if title.blank?
       title
     end
 

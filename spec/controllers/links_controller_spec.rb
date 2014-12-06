@@ -6,11 +6,11 @@ RSpec.describe LinksController, :type => :controller do
     describe '#create' do
       before { sign_in(user) }
       it 'responds json' do
-        post :create, url: 'http://tnantoka.com/'
+        post :create, url: 'http://example.com/'
         expect(response.status).to eq(200)
         json = JSON.parse(response.body)
-        expect(json['title']).to eq('tnantoka.com')
-        expect(json['url']).to eq('http://tnantoka.com/')
+        expect(json['title']).to eq('Example')
+        expect(json['url']).to eq('http://example.com/')
       end
     end
   end

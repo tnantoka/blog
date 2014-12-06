@@ -66,7 +66,9 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseRewinder.clean_all
     Rails.cache.clear
-    stub_request(:get, 'tnantoka.com').to_return(body: '<title>tnantoka.com</title>')
+    WebMock.allow_net_connect!
+    stub_request(:get, 'example.com').to_return(body: '<title>Example</title>')
+    stub_request(:get, 'example.com/404').to_return(status: 404)
   end
 
   config.after(:each) do
