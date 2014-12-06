@@ -77,7 +77,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   middleware.use ExceptionNotification::Rack,
-    email {
+    email: {
       email_prefix: Settings.exception_notification.prefix,
       sender_address: Settings.exception_notification.sender,
       exception_recipients: Settings.exception_notification.recipients
