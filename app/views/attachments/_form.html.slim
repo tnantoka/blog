@@ -1,5 +1,5 @@
 = form_for @attachment, html: { multipart: true } do |f|
   .form-group
     = f.file_field :file, required: Rails.env.production?
-  = f.submit class: 'btn btn-default', data: { disable_with: t('shared.please_wait') }
+  = f.submit class: 'btn btn-primary', data: { disable_with: t('shared.please_wait') }
 
