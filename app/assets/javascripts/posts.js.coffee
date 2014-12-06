@@ -66,8 +66,15 @@ $(document).on 'click', '.js_insert_link', (e) ->
   e.preventDefault()
   url = prompt('URL')
   if url
+    NProgress.start()
     params =
       url: url
-    $.post '/links', params, (json) ->
-      insert("[#{json.title}](#{json.url})")
-      
+    $.ajax
+      url: '/links'
+      method: 'POST'
+      data: params
+      success: (json) ->
+        insert("[#{json.title}](#{json.url})")
+      complete: ->
+        NProgress.done()
+
