@@ -12,8 +12,9 @@ html lang="#{I18n.locale}"
     .container
       header
         .pull-right
-          = form_tag :search_posts, method: :get do
-            = text_field_tag :q, params[:q], placeholder: t('.search')
+          = form_tag :search_posts, method: :get, class: 'form-inline' do
+            .form-group
+              = text_field_tag :q, params[:q], class: 'form-control input-sm', placeholder: t('.search')
         ul.list-inline
           li= link_to t('.home'), :root, class: "#{'link-plain' if home_page?}"
           li= link_to t('.posts'), :posts, class: "#{'link-plain' if posts_page?}"
