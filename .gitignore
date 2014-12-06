@@ -30,5 +30,5 @@ config/environments/*.local.yml
 # Blog
 /coverage
 /public/system
-
+/public/assets
 
