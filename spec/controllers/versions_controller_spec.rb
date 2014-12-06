@@ -21,6 +21,13 @@ RSpec.describe VersionsController, :type => :controller do
           expect(response.status).to eq(200)
         end
       end
+
+      describe '#current' do
+        it 'responds 200' do
+          get :current, post_id: version.item_id
+          expect(response.status).to eq(200)
+        end
+      end
     end
   end
 end

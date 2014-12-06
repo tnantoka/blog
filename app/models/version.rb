@@ -5,12 +5,29 @@ class Version < PaperTrail::Version
 
   paginates_per 10
 
+  class << self
+    def current(post)
+      self.new(
+        id: post.versions.count + 1,
+        item_id: post.id,
+        item_type: 'Post',
+        event: 'update',
+        object: ActiveSupport::JSON.encode(post),
+        whodunnit: post.user_id.to_s
+      )
+    end
+  end
+
   def diff
     cached(:_diff)
   end
 
+  def index
+    persisted? ? super : item.versions.count
+  end
+
   def number
-    "##{index + 1}"
+    "##{index.to_i + 1}"
   end
 
   private

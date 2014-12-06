@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       get :draft
       get :template
     end
-    resources :versions, only: [:index, :show] 
+    resources :versions, only: [:index, :show] do
+      get :current, on: :collection
+    end
   end
   resources :attachments, only: [:index, :new, :create, :destroy]
 end

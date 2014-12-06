@@ -14,8 +14,8 @@ feature "Versions", :type => :feature do
 
     feature 'index' do
       scenario do
-        visit post_versions_path(post.id)
-        expect(current_path).to eq post_versions_path(post.id)
+        visit post_versions_path(post)
+        expect(current_path).to eq post_versions_path(post)
         versions.each do |version|
           expect(page).to have_content(version.reify.title)
         end
@@ -24,10 +24,17 @@ feature "Versions", :type => :feature do
 
     feature 'CRUD' do
       scenario 'show' do
-        visit post_version_path(post.id, version)
-        expect(current_path).to eq post_version_path(post.id, versions.last)
+        visit post_version_path(post, version)
+        expect(current_path).to eq post_version_path(post, versions.last)
         expect(page).to have_content(version.reify.title)
         expect(page).to have_content(version.reify.content)
+      end
+
+      scenario 'current' do
+        visit current_post_versions_path(post)
+        expect(current_path).to eq current_post_versions_path(post)
+        expect(page).to have_content(post.title)
+        expect(page).to have_content(post.content)
       end
     end
   end
