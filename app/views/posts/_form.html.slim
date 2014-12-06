@@ -17,10 +17,10 @@
       .checkbox
         .pull-right
           span.js_preview_count
-        label>
+        => f.label :published do
           = f.check_box :published
           = t('activerecord.attributes.post.published')
-        label
+        = f.label :template
           = f.check_box :template
           = t('activerecord.attributes.post.template')
       div

@@ -45,6 +45,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'bullet', '~> 4.14.0'
+  gem 'did_you_mean', '~> 0.9.4'
 end
 
 group :test do
