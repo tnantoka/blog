@@ -48,10 +48,11 @@ preview = _.throttle(->
     $('.js_preview_content').html(json.content)
     $('.js_preview_count').html(json.count)
     prettyPrint()
-, 3000)
+, 1000)
 
 insert = (text) ->
-  $('#post_content').selection('insert', {text: text, mode: 'after'})
+  $('#post_content').selection('insert', {text: text, mode: 'after'}).trigger('autosize.resize')
+  preview()
 
 $(document).on 'keyup', '#post_title, #post_content', preview
 
@@ -77,4 +78,13 @@ $(document).on 'click', '.js_insert_link', (e) ->
         insert("[#{json.title}](#{json.url})")
       complete: ->
         NProgress.done()
+
+$(document).on 'click', '.js_insert_table', (e) ->
+  insert([
+    ' | '
+    '--- | --- '
+    ' | '
+    ' | '
+    ''
+  ].join('\n'))
 
