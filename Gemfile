@@ -77,6 +77,7 @@ gem 'annotate', '~> 2.6.5'
 gem 'paper_trail', '~> 3.0.6'
 gem 'diffy', '~> 3.0.7'
 gem 'metainspector', '~> 4.0.0'
+gem 'dotenv-rails', '~> 1.0.2'
 
 gem 'rails-assets-jquery-autosize', '~> 1.18.15'
 gem 'rails-assets-google-code-prettify', '~> 1.0.3'
