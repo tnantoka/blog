@@ -13,7 +13,7 @@
   h2.list-title 
     = link_to post.title, post
     small
-      =< timeago(post.updated_at)
+      =< post_created(post)
       =< draft_label(post)
       - if user_signed_in?
         =< link_to t('posts.post.edit'), edit_post_path(post)

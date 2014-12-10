@@ -51,6 +51,20 @@ RSpec.describe Post, :type => :model do
     it { should eq(6) }
   end
 
+  describe '#newer' do
+    let(:posts) { create_list(:post, 10, :published) }
+    let(:post) { posts.first }
+    subject { post.newer }
+    it { should eq(posts[1]) }
+  end
+
+  describe '#older' do
+    let(:posts) { create_list(:post, 10, :published) }
+    let(:post) { posts.last }
+    subject { post.older }
+    it { should eq(posts[-2]) }
+  end
+
   describe '.search' do
     before { create_list(:post, 10) }
     let(:query) { 'a' }

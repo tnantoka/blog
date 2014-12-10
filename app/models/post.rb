@@ -48,6 +48,14 @@ class Post < ActiveRecord::Base
     content_text.gsub(/\n|\r/, '').size
   end
 
+  def newer
+    Post.published.where('id > ?', self.id).take
+  end
+
+  def older
+    Post.published.where('id < ?', self.id).latest.take
+  end
+
   private
     def _render 
       MarkdownRenderer.render(content)

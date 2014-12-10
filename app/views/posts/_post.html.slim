@@ -1,7 +1,7 @@
 section
   h1.post-title= link_to post.title, post, class: "#{'link-plain' if post_page?}"
   ul.list-inline.text-muted
-    li= timeago(post.updated_at)
+    li= post_created(post)
     li= "#{post.count}#{t('.characters')}"
     li= draft_label(post)
   - if post_page? && post.toc.present?
@@ -23,3 +23,16 @@ section
         li= link_to t('.permalink'), post
         li= link_to t('.raw'), post_path(post, format: :md)
         li= link_to t('.tweet'), tweet_url(post), target: '_blank'
+  - if post_page?
+    .row
+      .col-xs-6
+        - if post.newer.present?
+          = link_to post.newer, class: 'link-plain' do
+            | <
+            = post.newer.title
+      .col-xs-6.text-right
+        - if post.older.present?
+          = link_to post.older, class: 'link-plain' do
+            => post.older.title
+            | >
+

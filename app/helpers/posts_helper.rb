@@ -13,6 +13,10 @@ module PostsHelper
     end
   end
 
+  def post_created(post)
+    timeago(post.updated_at)
+  end
+
   def tweet_url(post)
     prefix = user_signed_in? ? "#{Settings.tweet.prefix}+" : ''
     suffix = user_signed_in? ? '' : "+#{Settings.tweet.suffix}" 
