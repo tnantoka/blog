@@ -43,7 +43,7 @@ preview = _.throttle(->
     post:
       title: $('#post_title').val()
       content: $('#post_content').val()
-  $.post '/posts/preview', params, (json) ->
+  $.post '/posts/preview.json', params, (json) ->
     $('.js_preview_title').html(json.title)
     $('.js_preview_content').html(json.content)
     $('.js_preview_count').html(json.count)

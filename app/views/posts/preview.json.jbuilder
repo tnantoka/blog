@@ -1,0 +1,2 @@
+json.(:title, :render, :count)
+
