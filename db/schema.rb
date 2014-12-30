@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204033515) do
+ActiveRecord::Schema.define(version: 20141227143330) do
 
   create_table "attachments", force: true do |t|
     t.integer  "user_id"
@@ -24,6 +24,27 @@ ActiveRecord::Schema.define(version: 20141204033515) do
   end
 
   add_index "attachments", ["user_id"], name: "index_attachments_on_user_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "identity_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["identity_id"], name: "index_comments_on_identity_id", using: :btree
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+
+  create_table "identities", force: true do |t|
+    t.string   "uid",        null: false
+    t.string   "provider",   null: false
+    t.string   "nickname",   null: false
+    t.string   "url",        null: false
+    t.text     "raw_info",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title",                                       null: false

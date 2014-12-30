@@ -27,6 +27,8 @@ ja:
       raw: ソース
       tweet: ツイート
       toc: 目次
+    show:
+      sign_in_to_comment: コメントするにはGitHubログインしてください
     index:
       all: 全ての投稿
       published: 公開済み
@@ -68,8 +70,11 @@ ja:
         template: テンプレート
       attachment:
         file: ファイル
+      comment:
+        body: コメント本文
     models:
       user: ユーザー
       post: 投稿
       attachment: 添付ファイル
+      comment: コメント
 

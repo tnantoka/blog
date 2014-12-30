@@ -36,7 +36,9 @@ html lang="#{I18n.locale}"
 
       footer.text-muted
         ul.list-inline.pull-right
-          - if user_signed_in?
+          - if current_identity.present?
+            li= link_to t('.sign_out'), :identity, method: :delete, class: 'link-plain', data: { disable_with: t('shared.please_wait') }
+          - elsif user_signed_in?
             li= link_to t('.sign_out'), :destroy_user_session, method: :delete, class: 'link-plain', data: { disable_with: t('shared.please_wait') }
           - else
             li= link_to_unless_current t('.admin'), :new_user_session, class: 'link-plain'

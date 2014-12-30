@@ -5,10 +5,11 @@
 #  id         :integer          not null, primary key
 #  title      :string(255)      not null
 #  content    :text(16777215)   not null
-#  published  :boolean
+#  published  :boolean          default(FALSE)
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  template   :boolean          default(FALSE)
 #
 
 require 'rails_helper'

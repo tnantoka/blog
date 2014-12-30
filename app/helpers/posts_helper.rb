@@ -23,4 +23,8 @@ module PostsHelper
     text = "#{prefix}#{post.title}+-+#{Settings.site.title}+#{post_url(post)}#{suffix}"
     "https://twitter.com/intent/tweet?text=#{text}"
   end
+
+  def identity_link(identity)
+    link_to identity.nickname, identity.url
+  end
 end

@@ -13,6 +13,19 @@ class ApplicationController < ActionController::Base
     @posts = user_signed_in? ? Post.all : Post.published
   end
 
+  def current_identity
+    @current_identity ||= Identity.find_by(id: session[:identity_id])
+  end
+  helper_method :current_identity
+
+  def current_identity=(identity)
+    session[:identity_id] = identity.try(:id)
+  end
+
+  def authenticate_identity!
+    head :unauthorized and return if current_identity.blank?
+  end
+
   private
     def extract_locale_from_accept_language_header
       available_locale(request.env['HTTP_ACCEPT_LANGUAGE'].to_s.scan(/^[a-z]{2}/).first)

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)      not null
+#  content    :text(16777215)   not null
+#  published  :boolean          default(FALSE)
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  template   :boolean          default(FALSE)
+#
+
 FactoryGirl.define do
   factory :post do
     title { Faker::Name.title }    

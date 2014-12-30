@@ -1,2 +1,9 @@
 - content_for(:title) { @post.title }
 = render @post
+hr
+dl
+  = render @comments
+- if current_identity.present?
+  = render 'comments/form'
+- else
+  = link_to t('.sign_in_to_comment'), new_identity_path(post_id: @post.id), class: 'btn btn-default btn-block'
