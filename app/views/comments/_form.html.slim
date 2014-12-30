@@ -1,0 +1,13 @@
+= form_for([@post, @comment]) do |f| 
+  - if @comment.errors.any? 
+    .alert.alert-danger
+      ul.list-unstyled
+        - @comment.errors.full_messages.each do |message|
+          li= message 
+  .form-group
+    dl
+      dt
+        = identity_link(current_identity)
+      dd
+        = f.text_area :body, class: 'form-control', placeholder: t('activerecord.attributes.comment.body'), required: Rails.env.production?
+  = f.submit class: 'btn btn-primary', data: { disable_with: t('shared.please_wait') }

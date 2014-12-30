@@ -1,0 +1,6 @@
+dt
+  = identity_link(comment.identity)
+  small.text-muted<
+    = timeago(comment.updated_at)
+dd
+  = simple_format(comment.body)

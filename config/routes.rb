@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     resources :versions, only: [:index, :show] do
       get :current, on: :collection
     end
+    resources :comments, only: [:create] do
+    end
   end
   resources :attachments, only: [:index, :new, :create, :destroy]
   resources :links, only: [:create]
+
+  resource :identity, only: [:new, :destroy]
+  get '/auth/:provider/callback', to: 'identities#create'
 end

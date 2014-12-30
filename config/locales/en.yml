@@ -27,6 +27,8 @@ en:
       raw: Raw
       tweet: Tweet
       toc: TOC
+    show:
+      sign_in_to_comment: Please sign in with GitHub to comment
     index:
       all: All posts
       published: Published
@@ -68,8 +70,11 @@ en:
         template: Template
       attachment:
         file: File
+      comment:
+        body: Comment body
     models:
       user: User
       post: Post
       attachment: Attachment
+      comment: Comment
 

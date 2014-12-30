@@ -5,10 +5,11 @@
 #  id         :integer          not null, primary key
 #  title      :string(255)      not null
 #  content    :text(16777215)   not null
-#  published  :boolean
+#  published  :boolean          default(FALSE)
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  template   :boolean          default(FALSE)
 #
 
 class Post < ActiveRecord::Base
@@ -18,6 +19,8 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
   validates :content, presence: true
+
+  has_many :comments, dependent: :destroy
 
   scope :latest, -> { order(id: :desc) }
   scope :published, -> { where(published: true, template: false) }

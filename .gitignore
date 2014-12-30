@@ -20,6 +20,9 @@ config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 
+# dotenv-rails
+.env
+
 # Mac
 .DS_Store
 
@@ -31,4 +34,3 @@ config/environments/*.local.yml
 /coverage
 /public/system
 /public/assets
-
