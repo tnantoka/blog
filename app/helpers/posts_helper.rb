@@ -14,7 +14,7 @@ module PostsHelper
   end
 
   def post_created(post)
-    timeago(post.updated_at)
+    timeago(post.created_at)
   end
 
   def tweet_url(post)

@@ -31,10 +31,12 @@
         = f.label :template
           = f.check_box :template
           = t('activerecord.attributes.post.template')
+      - if @post.persisted?
+        p= f.datetime_select :created_at
       div
         .pull-right
           = select_tag :template_id, options_for_select([nil] + @templates.map { |t| [t.title, t.id] }), class: 'form-control js_post_template'
         = f.submit class: 'btn btn-primary js_submit_post', data: { disable_with: t('shared.please_wait') }, title: '⌘S'
     .col-sm-6
       .post-content.js_preview_content
-
+     

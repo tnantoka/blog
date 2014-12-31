@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :published, :template)
+      params.require(:post).permit(:title, :content, :published, :template, :created_at)
     end
 
     def set_templates
