@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   def set_posts
     @posts = user_signed_in? ? Post.all : Post.published
+    @toc = @posts.alphabetical
   end
 
   def current_identity

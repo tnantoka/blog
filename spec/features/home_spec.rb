@@ -10,7 +10,7 @@ feature "Home", :type => :feature do
       expect(current_path).to eq root_path
       published_posts.each do |post|
         expect(page).to have_content(post.title)
-        expect(page).to have_content(post.content)
+        expect(page).to_not have_content(post.content)
       end
       draft_posts.each do |post|
         expect(page).to_not have_content(post.title)

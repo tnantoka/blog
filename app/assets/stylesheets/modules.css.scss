@@ -44,6 +44,10 @@
   @extend h4;
 }
 
+.toc-title {
+  @extend h5;
+}
+
 .post-toolbar {
   margin-bottom: 10px;
 }

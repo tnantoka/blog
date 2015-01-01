@@ -30,6 +30,7 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   scope :latest, -> { order(id: :desc) }
+  scope :alphabetical, -> { order(:title) }
   scope :published, -> { where(published: true, template: false) }
   scope :draft, -> { where(published: false, template: false) }
   scope :template, -> { where(template: true) }

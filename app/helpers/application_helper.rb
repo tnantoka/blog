@@ -18,4 +18,8 @@ module ApplicationHelper
   def attachments_page?
     controller_name == 'attachments' && action_name == 'index'
   end
+
+  def with_toc?
+    home_page? || post_page?
+  end
 end

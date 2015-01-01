@@ -16,8 +16,7 @@ html lang="#{I18n.locale}"
             .form-group
               = text_field_tag :q, params[:q], class: 'form-control input-sm', placeholder: t('.search')
         ul.list-inline
-          li= link_to t('.home'), :root, class: "#{'link-plain' if home_page?}"
-          li= link_to t('.posts'), :posts, class: "#{'link-plain' if posts_page?}"
+          li= link_to Settings.site.title, :root, class: "link-plain"
           - if user_signed_in?
             li= link_to t('.attachments'), :attachments, class: "#{'link-plain' if attachments_page?}"
             li= link_to t('.new'), :new_post, class: "#{'link-plain' if new_post_page?}"
@@ -32,7 +31,14 @@ html lang="#{I18n.locale}"
         .alert.alert-danger
           button.close type="button" data-dismiss="alert" &times;
           = flash[:alert]
-      = yield
+      - if with_toc?
+        .row
+          .col-sm-3
+            = render 'posts/toc'
+          .col-sm-9
+            = yield
+      - else
+        = yield
 
       hr
 
