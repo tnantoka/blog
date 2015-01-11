@@ -10,6 +10,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  template   :boolean          default(FALSE)
+#  parent_id  :integer
 #
 
 require 'rails_helper'

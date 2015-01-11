@@ -10,12 +10,14 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  template   :boolean          default(FALSE)
+#  parent_id  :integer
 #
 
 class Post < ActiveRecord::Base
   include Cacheable
 
   belongs_to :user
+  belongs_to :parent, class_name: 'Post'
 
   validates :title, presence: true
   validates :content, presence: true
