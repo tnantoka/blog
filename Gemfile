@@ -100,5 +100,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
   gem 'rails-assets-dropzone'
   gem 'rails-assets-mousetrap'
+  gem 'rails-assets-select2'
 end
 

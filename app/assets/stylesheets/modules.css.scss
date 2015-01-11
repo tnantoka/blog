@@ -32,6 +32,13 @@
   }
 }
 
+ul {
+  .children-list,
+  .toc-list {
+    margin-left: 0.5em;
+  }
+}
+
 .post-title {
   @extend h2;
 }

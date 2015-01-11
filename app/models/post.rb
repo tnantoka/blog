@@ -23,6 +23,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :parent, class_name: 'Post'
+  has_many :children, class_name: 'Post', foreign_key: 'parent_id', dependent: :nullify
 
   validates :title, presence: true
   validates :content, presence: true
@@ -34,6 +35,7 @@ class Post < ActiveRecord::Base
   scope :published, -> { where(published: true, template: false) }
   scope :draft, -> { where(published: false, template: false) }
   scope :template, -> { where(template: true) }
+  scope :root, -> { where(parent_id: nil) }
   scope :search, -> query { 
     q = "%#{query}%"  
     where('title LIKE ? OR content LIKE ?', q, q) 

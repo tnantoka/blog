@@ -4,6 +4,7 @@
 
 $ ->
   $('#post_content').autosize()
+  $('#post_parent_id').select2()
   prettyPrint()
   preview()
   initDropzone()

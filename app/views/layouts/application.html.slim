@@ -34,7 +34,7 @@ html lang="#{I18n.locale}"
       - if with_toc?
         .row
           .col-sm-3
-            = render 'posts/toc'
+            = render 'posts/toc', posts: @toc
           .col-sm-9
             = yield
       - else

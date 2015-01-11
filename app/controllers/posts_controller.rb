@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_posts, only: [:show, :edit, :update, :destroy, :index, :search, :published, :draft, :template]
+  before_action :set_posts, only: [:show, :new, :create, :edit, :update, :destroy, :index, :search, :published, :draft, :template]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :preview, :published, :draft, :template]
@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :published, :template, :created_at)
+      params.require(:post).permit(:title, :content, :published, :template, :created_at, :parent_id)
     end
 
     def set_templates

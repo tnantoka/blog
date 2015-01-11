@@ -23,16 +23,6 @@ section
         li= link_to t('.permalink'), post
         li= link_to t('.raw'), post_path(post, format: :md)
         li= link_to t('.tweet'), tweet_url(post), target: '_blank'
-  - if post_page?
-    .row
-      .col-xs-6
-        - if post.newer.present?
-          = link_to post.newer, class: 'link-plain' do
-            | <
-            = post.newer.title
-      .col-xs-6.text-right
-        - if post.older.present?
-          = link_to post.older, class: 'link-plain' do
-            => post.older.title
-            | >
+  - if post_page? && post.children.present?
+    = render 'posts/children', posts: post.children
 

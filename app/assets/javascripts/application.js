@@ -24,4 +24,5 @@
 //= require jquery.selection
 //= require mousetrap
 //= require mousetrap/plugins/global-bind/mousetrap-global-bind
+//= require select2
 //= require_tree .

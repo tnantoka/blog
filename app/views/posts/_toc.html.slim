@@ -1,9 +1,10 @@
-ul.list-unstyled
-  - @toc.each do |post|
-    li
-      h2.toc-title
-        = link_to post.title, post
-        small
-          =< post_created(post)
-          =< draft_label(post)
-
+- if posts.present?
+  ul.list-unstyled.toc-list
+    - posts.alphabetical.each do |post|
+      li
+        h2.toc-title
+          = link_to post.title, post, class: "#{'link-plain' if post == @post}"
+          small
+            =< post_created(post)
+            =< draft_label(post)
+        = render 'posts/toc', posts: post.children

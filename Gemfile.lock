@@ -245,6 +245,8 @@ GEM
     rails-assets-jquery-autosize (1.18.18)
       rails-assets-jquery (>= 1.7)
     rails-assets-mousetrap (1.5.1)
+    rails-assets-select2 (3.5.2)
+      rails-assets-jquery (>= 1.7.1)
     rails-assets-underscore (1.8.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -405,6 +407,7 @@ DEPENDENCIES
   rails-assets-jquery-autosize (~> 1.18.18)!
   rails-assets-mousetrap!
   rails-assets-underscore!
+  rails-assets-select2!
   rails-i18n
   rails_config
   rb-readline
