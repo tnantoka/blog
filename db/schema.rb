@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227143330) do
+ActiveRecord::Schema.define(version: 20150111035919) do
 
   create_table "attachments", force: true do |t|
     t.integer  "user_id"
@@ -54,8 +54,10 @@ ActiveRecord::Schema.define(version: 20141227143330) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "template",                    default: false
+    t.integer  "parent_id"
   end
 
+  add_index "posts", ["parent_id"], name: "index_posts_on_parent_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

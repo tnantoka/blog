@@ -5,6 +5,7 @@
 #  id          :integer          not null, primary key
 #  body        :text
 #  identity_id :integer
+#  post_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #
