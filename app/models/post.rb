@@ -27,6 +27,9 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
   validates :content, presence: true
+  validates_each :parent_id do |record, attr, value|
+    record.errors.add(attr, :invalid) if value.present? && value == record.id
+  end
 
   has_many :comments, dependent: :destroy
 

@@ -1,6 +1,6 @@
 - if posts.present?
-  - posts.each do |post|
-    ul.list-unstyled.children-list
-      li
-        = link_to post.title, post, class: 'link-plain'
-        = render 'posts/children', posts: post.children
+  ul.list-unstyled.children-list
+    - posts.each do |post|
+        li
+          = link_to post.title, post, class: 'link-plain'
+          = render 'posts/children', posts: post.children

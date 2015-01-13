@@ -27,6 +27,7 @@ RSpec.describe Post, :type => :model do
     subject { create(:post) }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:content) }
+    it { should_not allow_value(subject.id).for(:parent_id) }
   end
 
   describe '#render' do

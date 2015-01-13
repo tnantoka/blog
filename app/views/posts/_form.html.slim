@@ -20,7 +20,7 @@
         = f.text_area :content, class: 'form-control', autofocus: @post.title.present?, placeholder: t('activerecord.attributes.post.content'), required: Rails.env.production?
       = render 'toolbar'
       .form-group
-        = f.collection_select :parent_id, @posts, :id, :title
+        = f.collection_select :parent_id, @posts, :id, :title, include_blank: true
       .checkbox
         .pull-right
           span.js_preview_count
