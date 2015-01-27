@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(parent_id: params[:parent_id])
   end
 
   def edit

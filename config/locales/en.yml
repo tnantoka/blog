@@ -27,6 +27,7 @@ en:
       raw: Raw
       tweet: Tweet
       toc: TOC
+      new: New
     show:
       sign_in_to_comment: Please sign in with GitHub to comment
     index:

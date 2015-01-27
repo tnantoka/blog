@@ -406,8 +406,8 @@ DEPENDENCIES
   rails-assets-google-code-prettify!
   rails-assets-jquery-autosize (~> 1.18.18)!
   rails-assets-mousetrap!
-  rails-assets-underscore!
   rails-assets-select2!
+  rails-assets-underscore!
   rails-i18n
   rails_config
   rb-readline

@@ -27,6 +27,7 @@ ja:
       raw: ソース
       tweet: ツイート
       toc: 目次
+      new: 新規
     show:
       sign_in_to_comment: コメントするにはGitHubログインしてください
     index:
