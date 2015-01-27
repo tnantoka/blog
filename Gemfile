@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
+
+gem 'bundler', '>= 1.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
@@ -39,50 +40,52 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :production do
-  gem 'exception_notification', '~> 4.0.1'
+  gem 'exception_notification'
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.1.0'
-  gem 'bullet', '~> 4.14.0'
-  gem 'did_you_mean', '~> 0.9.4'
+  gem 'rspec-rails'
+  gem 'bullet'
+  gem 'did_you_mean'
 end
 
 group :test do
-  gem 'simplecov', '~> 0.9.1', require: false
-  gem 'factory_girl_rails', '~> 4.5.0'
-  gem 'capybara', '~> 2.4.4'
-  #gem 'poltergeist', '~> 1.5.1'
-  gem 'shoulda-matchers', '~> 2.7.0'
-  gem 'database_rewinder', '~> 0.4.1'
-  gem 'faker', '~> 1.4.3'
-  gem 'coveralls', '~> 0.7.2', require: false
-  gem 'webmock', '~> 1.20.4'
+  gem 'simplecov', require: false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  #gem 'poltergeist'
+  gem 'shoulda-matchers'
+  gem 'database_rewinder'
+  gem 'faker'
+  gem 'coveralls', require: false
+  gem 'webmock'
 end
 
-gem 'devise', '~> 3.4.1'
-gem 'devise-i18n', '~> 0.11.2'
-gem 'slim-rails', '~> 2.1.5'
-gem 'bootstrap-sass', '~> 3.3.1.0'
-gem 'kaminari', '~> 0.16.1'
-gem 'kaminari-i18n', '~> 0.2.0'
-gem 'redcarpet', '~> 3.2.1'
-gem 'jquery-turbolinks', '~> 2.1.0'
-gem 'nokogiri', '~> 1.6.5'
-gem 'nprogress-rails', '~> 0.1.6.3'
-gem 'paperclip', '~> 4.2.0'
-gem 'rails-i18n', '~> 4.0.3'
-gem 'rails_config', '~> 0.4.2'
-gem 'annotate', '~> 2.6.5'
-gem 'paper_trail', '~> 3.0.6'
-gem 'diffy', '~> 3.0.7'
-gem 'metainspector', '~> 4.0.0'
-gem 'dotenv-rails', '~> 1.0.2'
-gem 'omniauth-github', '~> 1.1.2'
+gem 'devise'
+gem 'devise-i18n'
+gem 'slim-rails'
+gem 'bootstrap-sass'
+gem 'kaminari'
+gem 'kaminari-i18n'
+gem 'redcarpet'
+gem 'jquery-turbolinks'
+gem 'nokogiri'
+gem 'nprogress-rails'
+gem 'paperclip'
+gem 'rails-i18n'
+gem 'rails_config'
+gem 'annotate'
+gem 'paper_trail'
+gem 'diffy'
+gem 'metainspector'
+gem 'dotenv-rails'
+gem 'omniauth-github'
 
-gem 'rails-assets-jquery-autosize', '~> 1.18.15'
-gem 'rails-assets-google-code-prettify', '~> 1.0.3'
-gem 'rails-assets-underscore', '~> 1.7.0'
-gem 'rails-assets-dropzone', '~> 3.12.0'
-gem 'rails-assets-mousetrap', '~> 1.4.6'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery-autosize'
+  gem 'rails-assets-google-code-prettify'
+  gem 'rails-assets-underscore'
+  gem 'rails-assets-dropzone'
+  gem 'rails-assets-mousetrap'
+end
 
