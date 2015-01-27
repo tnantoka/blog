@@ -81,6 +81,7 @@ gem 'metainspector'
 gem 'dotenv-rails'
 gem 'omniauth-github'
 gem 'responders'
+gem 'arigato_rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-autosize'

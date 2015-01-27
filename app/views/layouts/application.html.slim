@@ -44,5 +44,6 @@ html lang="#{I18n.locale}"
             li= link_to_unless_current t('.admin'), :new_user_session, class: 'link-plain'
         ul.list-inline
           li= link_to Settings.copyright.label.html_safe, Settings.copyright.url, class: 'link-plain'
-          li= link_to t('.feed'), posts_path(format: :atom),class: 'link-plain' 
+          li= link_to t('.feed'), posts_path(format: :atom), class: 'link-plain'
+          li= link_to 'Special Thanks', main_app.thanks_path, class: 'link-plain'
 
