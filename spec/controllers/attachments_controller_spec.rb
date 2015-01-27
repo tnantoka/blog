@@ -9,7 +9,7 @@ RSpec.describe AttachmentsController, :type => :controller do
         post :create, attachment: { file: fixture_file_upload('image.png', 'image/png') }, format: :json
         expect(response.status).to eq(200)
         json = JSON.parse(response.body)
-        expect(json['path']).to eq(Attachment.last.file.url)
+        expect(URI.parse(json['path']).path).to eq(URI.parse(Attachment.last.file.url).path)
         expect(json['is_image']).to eq(true)
         expect(json['name']).to eq('image.png')
       end

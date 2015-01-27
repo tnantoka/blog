@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'bundler', '>= 1.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -61,7 +61,7 @@ group :test do
   gem 'webmock'
 end
 
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 gem 'devise-i18n'
 gem 'slim-rails'
 gem 'bootstrap-sass'
@@ -80,6 +80,7 @@ gem 'diffy'
 gem 'metainspector'
 gem 'dotenv-rails'
 gem 'omniauth-github'
+gem 'responders'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-autosize'
