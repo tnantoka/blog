@@ -7,8 +7,12 @@
 #  item_id    :integer          not null
 #  event      :string(255)      not null
 #  whodunnit  :string(255)
-#  object     :text(2147483647)
+#  object     :text(4294967295)
 #  created_at :datetime
+#
+# Indexes
+#
+#  index_versions_on_item_type_and_item_id  (item_type,item_id)
 #
 
 class Version < PaperTrail::Version

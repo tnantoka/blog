@@ -7,7 +7,7 @@
 #  provider   :string(255)      not null
 #  nickname   :string(255)      not null
 #  url        :string(255)      not null
-#  raw_info   :text             not null
+#  raw_info   :text(65535)      not null
 #  created_at :datetime
 #  updated_at :datetime
 #

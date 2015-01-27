@@ -13,22 +13,22 @@
 
 ActiveRecord::Schema.define(version: 20150111035919) do
 
-  create_table "attachments", force: true do |t|
-    t.integer  "user_id"
+  create_table "attachments", force: :cascade do |t|
+    t.integer  "user_id",           limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
     t.datetime "file_updated_at"
   end
 
   add_index "attachments", ["user_id"], name: "index_attachments_on_user_id", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.text     "body"
-    t.integer  "identity_id"
-    t.integer  "post_id"
+  create_table "comments", force: :cascade do |t|
+    t.text     "body",        limit: 65535
+    t.integer  "identity_id", limit: 4
+    t.integer  "post_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,41 +36,41 @@ ActiveRecord::Schema.define(version: 20150111035919) do
   add_index "comments", ["identity_id"], name: "index_comments_on_identity_id", using: :btree
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
 
-  create_table "identities", force: true do |t|
-    t.string   "uid",        null: false
-    t.string   "provider",   null: false
-    t.string   "nickname",   null: false
-    t.string   "url",        null: false
-    t.text     "raw_info",   null: false
+  create_table "identities", force: :cascade do |t|
+    t.string   "uid",        limit: 255,   null: false
+    t.string   "provider",   limit: 255,   null: false
+    t.string   "nickname",   limit: 255,   null: false
+    t.string   "url",        limit: 255,   null: false
+    t.text     "raw_info",   limit: 65535, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "posts", force: true do |t|
-    t.string   "title",                                       null: false
+  create_table "posts", force: :cascade do |t|
+    t.string   "title",      limit: 255,                      null: false
     t.text     "content",    limit: 16777215,                 null: false
-    t.boolean  "published",                   default: false
-    t.integer  "user_id"
+    t.boolean  "published",  limit: 1,        default: false
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "template",                    default: false
-    t.integer  "parent_id"
+    t.boolean  "template",   limit: 1,        default: false
+    t.integer  "parent_id",  limit: 4
   end
 
   add_index "posts", ["parent_id"], name: "index_posts_on_parent_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(version: 20150111035919) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "versions", force: true do |t|
-    t.string   "item_type",                     null: false
-    t.integer  "item_id",                       null: false
-    t.string   "event",                         null: false
-    t.string   "whodunnit"
-    t.text     "object",     limit: 2147483647
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  limit: 255,        null: false
+    t.integer  "item_id",    limit: 4,          null: false
+    t.string   "event",      limit: 255,        null: false
+    t.string   "whodunnit",  limit: 255
+    t.text     "object",     limit: 4294967295
     t.datetime "created_at"
   end
 

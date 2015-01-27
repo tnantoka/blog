@@ -11,6 +11,10 @@
 #  file_file_size    :integer
 #  file_updated_at   :datetime
 #
+# Indexes
+#
+#  index_attachments_on_user_id  (user_id)
+#
 
 require 'rails_helper'
 
