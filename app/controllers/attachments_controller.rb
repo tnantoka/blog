@@ -13,6 +13,7 @@ class AttachmentsController < ApplicationController
   def create
     @attachment = Attachment.create(attachment_params)
     @attachment.user = current_user
+    @attachment.save
     
     respond_to do |format|
       format.html { redirect_to :attachments, notice: t('flash.created', model: Attachment.model_name.human) }

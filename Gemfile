@@ -61,7 +61,7 @@ group :test do
   gem 'webmock'
 end
 
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 gem 'devise-i18n'
 gem 'slim-rails'
 gem 'bootstrap-sass'
@@ -80,6 +80,7 @@ gem 'diffy'
 gem 'metainspector'
 gem 'dotenv-rails'
 gem 'omniauth-github'
+gem 'responders'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-autosize'
