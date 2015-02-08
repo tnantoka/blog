@@ -3,9 +3,9 @@ module ApplicationHelper
     controller_name == 'home' && action_name == 'index'
   end
 
-  def posts_page?
-    controller_name == 'posts' && action_name == 'index'
-  end
+  #def posts_page?
+  #  controller_name == 'posts' && action_name == 'index'
+  #end
 
   def new_post_page?
     controller_name == 'posts' && action_name == 'new'

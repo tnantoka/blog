@@ -3,4 +3,4 @@
     - posts.each do |post|
         li
           = link_to post.title, post, class: 'link-plain'
-          = render 'posts/children', posts: post.children
+          = render 'posts/children', posts: post.children.send(@scope)

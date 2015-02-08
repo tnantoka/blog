@@ -7,4 +7,4 @@
           small
             =< post_created(post)
             =< draft_label(post)
-        = render 'posts/toc', posts: post.children
+        = render 'posts/toc', posts: post.children.send(@scope)

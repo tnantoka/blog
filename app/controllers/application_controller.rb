@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_posts
-    @posts = user_signed_in? ? Post.all : Post.published
-    @toc = @posts.root.includes(:children)
+    @scope = user_signed_in? ? :all : :published
+    @posts = Post.send(@scope)
+    @toc = @posts.root
   end
 
   def current_identity
