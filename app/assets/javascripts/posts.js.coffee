@@ -50,8 +50,8 @@ preview = _.throttle(->
     prettyPrint()
 , 1000)
 
-insert = (text) ->
-  $('#post_content').selection('insert', {text: text, mode: 'after'}).trigger('autosize.resize')
+insert = (text, mode= 'after') ->
+  $('#post_content').selection('insert', {text: text, mode: mode}).trigger('autosize.resize')
   preview()
 
 $(document).on 'keyup', '#post_title, #post_content', preview
@@ -87,4 +87,7 @@ $(document).on 'click', '.js_insert_table', (e) ->
     ' | '
     ''
   ].join('\n'))
+
+$(document).on 'click', '.js_insert_quote', (e) ->
+  insert('> ', 'before')
 
