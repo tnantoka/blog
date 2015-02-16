@@ -2,7 +2,7 @@ ol.breadcrumb
   li= link_to @post.title, @post
   li.active= link_to t('posts.post.versions'), post_versions_path(@post), class: 'link-plain'
 ul.list-unstyled
-  - versions = [@current] + @versions if @current.present?
+  - versions = ([@current] + @versions).compact
   - versions.each do |version|
     li
       => link_to "#{version.number} #{version.reify.title}", version.persisted? ? post_version_path(@post, version) : current_post_versions_path(@post)
