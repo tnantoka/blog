@@ -20,3 +20,12 @@ GITHUB_KEY=""
 GITHUB_SECRET=""
 ```
 
+```
+# .env
+DEPLOY_BRANCH=""
+DEPLOY_TO=""
+DEPLOY_HOST=""
+DEPLOY_USER=""
+$ cap production deploy
+```
+

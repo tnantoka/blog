@@ -52,6 +52,10 @@ end
 
 group :development do
   gem 'bullet'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
 
 group :test do
@@ -87,6 +91,7 @@ gem 'dotenv-rails'
 gem 'omniauth-github'
 gem 'responders'
 gem 'arigato_rails'
+gem 'rb-readline'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-autosize', '~> 1.18.18'
