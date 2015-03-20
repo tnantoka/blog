@@ -1,6 +1,7 @@
 = form_for([@post, @comment]) do |f| 
   - if @comment.errors.any? 
     .alert.alert-danger
+      button.close type="button" data-dismiss="alert" &times;
       ul.list-unstyled
         - @comment.errors.full_messages.each do |message|
           li= message 

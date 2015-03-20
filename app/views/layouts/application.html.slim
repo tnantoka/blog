@@ -26,9 +26,11 @@ html lang="#{I18n.locale}"
 
       - if flash[:notice].present?
         .alert.alert-success
+          button.close type="button" data-dismiss="alert" &times;
           = flash[:notice]
       - if flash[:alert].present?
         .alert.alert-danger
+          button.close type="button" data-dismiss="alert" &times;
           = flash[:alert]
       = yield
 
