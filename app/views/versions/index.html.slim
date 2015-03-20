@@ -6,5 +6,5 @@ ul.list-unstyled
   - versions.each do |version|
     li
       => link_to "#{version.number} #{version.reify.title}", version.persisted? ? post_version_path(@post, version) : current_post_versions_path(@post)
-      small= post_created(version.reify)
+      small= post_updated(version.reify)
 = paginate @versions 

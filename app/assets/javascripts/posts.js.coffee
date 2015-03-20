@@ -80,6 +80,7 @@ $(document).on 'click', '.js_insert_link', (e) ->
         NProgress.done()
 
 $(document).on 'click', '.js_insert_table', (e) ->
+  e.preventDefault()
   insert([
     ' | '
     '--- | --- '
@@ -89,5 +90,6 @@ $(document).on 'click', '.js_insert_table', (e) ->
   ].join('\n'))
 
 $(document).on 'click', '.js_insert_quote', (e) ->
+  e.preventDefault()
   insert('> ', 'before')
 

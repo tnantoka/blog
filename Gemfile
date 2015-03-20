@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
+
 gem 'bundler', '>= 1.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -45,8 +47,11 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'bullet'
   gem 'did_you_mean'
+end
+
+group :development do
+  gem 'bullet'
 end
 
 group :test do
@@ -84,7 +89,7 @@ gem 'responders'
 gem 'arigato_rails'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-jquery-autosize'
+  gem 'rails-assets-jquery-autosize', '~> 1.18.18'
   gem 'rails-assets-google-code-prettify'
   gem 'rails-assets-underscore'
   gem 'rails-assets-dropzone'

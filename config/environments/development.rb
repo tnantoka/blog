@@ -43,15 +43,7 @@ Rails.application.configure do
 
   config.after_initialize do
     Bullet.enable = true
-    Bullet.alert = false
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.growl = false
-    Bullet.xmpp = nil
-    Bullet.rails_logger = true
-    Bullet.bugsnag = false
-    Bullet.airbrake = false
-    Bullet.add_footer = true
-    Bullet.stacktrace_includes = nil
+    Bullet.raise = true
+    #Bullet.unused_eager_loading_enable = false
   end
 end
