@@ -43,6 +43,7 @@ gem 'spring',        group: :development
 
 group :production do
   gem 'exception_notification'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do

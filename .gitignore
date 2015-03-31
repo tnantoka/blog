@@ -34,3 +34,4 @@ config/environments/*.local.yml
 /coverage
 /public/system
 /public/assets
+/config/newrelic.yml
