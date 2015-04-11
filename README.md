@@ -10,7 +10,7 @@ $ rails c
 ```
 
 ```
-# .env
+# ENV
 BLOG_DATABASE_USERNAME=""
 BLOG_DATABASE_PASSWORD=""
 BLOG_DATABASE_SOCKET="/path/to/mysql.sock"
@@ -29,3 +29,24 @@ DEPLOY_USER=""
 $ cap production deploy
 ```
 
+```
+# config/settings.local.yml
+site:
+  title: 'Title'
+copyright:
+  label: '&copy; 2014 name'
+  url: 'http://example.com/'
+footer_links:
+  - label_ruby: "t('.feed')"
+    url_ruby: 'posts_path(format: :atom)'
+  - label: 'Special Thanks'
+    url_ruby: 'main_app.thanks_path'
+exception_notification:
+  prefix: '[Blog] '
+  sender: '"notifier" <notifier@example.com>'
+  recipients: 
+    - 'recipient@example.com'
+tweet:
+  prefix: 'New post'
+  suffix: '@tnantoka'
+```

@@ -18,4 +18,10 @@ module ApplicationHelper
   def attachments_page?
     controller_name == 'attachments' && action_name == 'index'
   end
+
+  def footer_link(link)
+    label = link.label.presence || eval(link.label_ruby)
+    url = link.url.presence || eval(link.url_ruby)
+    link_to label.html_safe, url, class: 'link-plain'
+  end
 end
