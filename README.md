@@ -40,7 +40,7 @@ footer_links:
   - label_ruby: "t('.feed')"
     url_ruby: 'posts_path(format: :atom)'
   - label: 'Special Thanks'
-    url_ruby: 'main_app.thanks_path'
+    url: '/thanks'
 exception_notification:
   prefix: '[Blog] '
   sender: '"notifier" <notifier@example.com>'

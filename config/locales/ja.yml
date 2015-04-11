@@ -16,6 +16,9 @@ ja:
       sign_out: ログアウト
       search: 検索
       feed: フィード
+      special_thanks: 謝辞
+      fork_me: ソースコード
+      old_entries: 古い記事はこちら
 
   posts:
     post:

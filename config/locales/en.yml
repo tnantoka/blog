@@ -16,6 +16,9 @@ en:
       sign_out: Sign out
       search: Search
       feed: Feed
+      special_thanks: Special thanks
+      fork_me: Fork me on GitHub
+      old_entries: Old entries
 
   posts:
     post:
