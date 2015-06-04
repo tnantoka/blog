@@ -8,6 +8,15 @@
   }
 }
 
+.link-uncolored {
+  color: inherit;
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
+  }
+}
+
 .preview-title {
   margin-top: 0;
   line-height: 1;

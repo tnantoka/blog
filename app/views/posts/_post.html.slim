@@ -1,5 +1,5 @@
 section
-  h1.post-title= link_to post.title, post, class: "#{'link-plain' if (post_page? || home_page?)}"
+  h1.post-title= link_to post.title, post, class: "#{'link-plain' if post_page?}#{'link-uncolored' if home_page?}"
   ul.list-inline.text-muted
     li= post_created(post)
     li= "#{post.count}#{t('.characters')}"
