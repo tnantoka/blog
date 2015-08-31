@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   def search
     query = params[:q].to_s.strip
     @posts = @posts.search(query) if query.present?
-    @posts = @posts.page(params[:page])
+    @posts = @posts.latest.page(params[:page])
   end
 
   def preview
