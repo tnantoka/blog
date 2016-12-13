@@ -71,7 +71,7 @@ group :test do
   gem 'webmock'
 end
 
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise', '3.5.10'
 gem 'devise-i18n'
 gem 'slim-rails'
 gem 'bootstrap-sass'
