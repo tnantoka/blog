@@ -1,0 +1,5 @@
+footer_links:
+  - label_ruby: "t('.feed')"
+    url_ruby: 'posts_path(format: :atom)'
+  - label: 'Special Thanks'
+    url: '/thanks'
