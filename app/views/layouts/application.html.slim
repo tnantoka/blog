@@ -7,6 +7,7 @@ html lang="#{I18n.locale}"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     style= Diffy::CSS
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = render 'analytics_tag'
     = csrf_meta_tags
   body
     nav.navbar.navbar-default.navbar-static-top
@@ -47,3 +48,5 @@ html lang="#{I18n.locale}"
           li= link_to Settings.copyright.label.html_safe, Settings.copyright.url, class: 'link-plain'
           - Settings.footer_links.to_a.each do |link|
             li= footer_link(link)
+
+    = render 'analytics_pageview'
