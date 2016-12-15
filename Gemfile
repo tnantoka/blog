@@ -12,7 +12,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -58,7 +58,6 @@ gem 'kaminari-i18n'
 gem 'redcarpet'
 gem 'jquery-turbolinks'
 gem 'nokogiri'
-gem 'nprogress-rails'
 gem 'paperclip'
 gem 'rails-i18n'
 gem 'rails_config'

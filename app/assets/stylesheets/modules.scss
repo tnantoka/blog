@@ -85,3 +85,7 @@
     font-size: 1.3em;
   }
 }
+
+html.turbolinks-progress-bar::before {
+  background-color: #00bcd4 !important;
+}

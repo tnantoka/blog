@@ -15,8 +15,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require nprogress
-//= require nprogress-turbolinks
 //= require jquery-autosize
 //= require google-code-prettify
 //= require underscore
