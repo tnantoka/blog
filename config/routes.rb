@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create] do
     end
   end
+  resources :comments, only: [:index]
   resources :attachments, only: [:index, :new, :create, :destroy]
   resources :links, only: [:create]
 

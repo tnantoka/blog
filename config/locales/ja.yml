@@ -10,6 +10,7 @@ ja:
     application:
       home: ホーム
       posts: 投稿一覧
+      comments: コメント一覧
       attachments: ファイル
       new: 新規
       admin: 管理

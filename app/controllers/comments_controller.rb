@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_identity!
-  before_action :set_posts
-  before_action :set_post
+  before_action :authenticate_identity!, except: [:index]
+  before_action :set_posts, except: [:index]
+  before_action :set_post, except: [:index]
+
+  def index
+    @comments = Comment.latest.includes(:post, :identity).page(params[:page])
+  end
 
   def create
     @comment = current_identity.comments.new(comment_params) 

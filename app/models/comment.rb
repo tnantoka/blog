@@ -20,4 +20,8 @@ class Comment < ActiveRecord::Base
   belongs_to :post
 
   validates :body, presence: true
+
+  scope :latest, -> { order(id: :desc) }
+
+  paginates_per 10
 end

@@ -7,6 +7,10 @@ module ApplicationHelper
     controller_name == 'posts' && action_name == 'index'
   end
 
+  def comments_page?
+    controller_name == 'comments' && action_name == 'index'
+  end
+
   def new_post_page?
     controller_name == 'posts' && action_name == 'new'
   end

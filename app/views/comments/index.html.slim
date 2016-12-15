@@ -1,0 +1,8 @@
+- @comments.each do |comment|
+  h2.list-title 
+    = link_to comment.post.title, comment.post
+    small
+      =< identity_link(comment.identity)
+      =< timeago(comment.updated_at)
+
+= paginate @comments

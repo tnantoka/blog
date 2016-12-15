@@ -2,7 +2,7 @@ en:
   shared:
     ago: ' ago'
     draft: 'Draft'
-    template: 'テンプレート'
+    template: 'Teamplate'
     are_you_sure: 'Are you sure?' 
     please_wait: 'Please wait...'
 
@@ -10,6 +10,7 @@ en:
     application:
       home: Home
       posts: Posts
+      comments: Comments
       attachments: Attachments
       new: New
       admin: Admin
