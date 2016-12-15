@@ -140,6 +140,8 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     fastimage (1.6.8)
       addressable (~> 2.3, >= 2.3.5)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.0)
@@ -382,6 +384,7 @@ DEPENDENCIES
   exception_notification
   factory_girl_rails
   faker
+  font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

@@ -9,21 +9,18 @@ html lang="#{I18n.locale}"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    .container
-      header
-        .pull-right
-          = form_tag :search_posts, method: :get, class: 'form-inline' do
-            .form-group
-              = text_field_tag :q, params[:q], class: 'form-control input-sm', placeholder: t('.search')
-        ul.list-inline
-          li= link_to t('.home'), :root, class: "#{'link-plain' if home_page?}"
-          li= link_to t('.posts'), :posts, class: "#{'link-plain' if posts_page?}"
+    nav.navbar.navbar-default.navbar-static-top
+      .container
+        ul.nav.navbar-nav
+          li class="#{'active' if home_page?}"= link_to t('.home'), :root
+          li class="#{'active' if posts_page?}"= link_to t('.posts'), :posts 
           - if user_signed_in?
-            li= link_to t('.attachments'), :attachments, class: "#{'link-plain' if attachments_page?}"
-            li= link_to t('.new'), :new_post, class: "#{'link-plain' if new_post_page?}"
-
-      hr
-
+            li class="#{'active' if attachments_page?}"= link_to t('.attachments'), :attachments
+            li class="#{'active' if new_post_page?}"= link_to t('.new'), :new_post
+        = form_tag :search_posts, method: :get, class: 'navbar-form navbar-right' do
+          .form-group
+            = text_field_tag :q, params[:q], class: 'form-control', placeholder: t('.search')
+    .container
       - if flash[:notice].present?
         .alert.alert-success
           button.close type="button" data-dismiss="alert" &times;
@@ -34,8 +31,9 @@ html lang="#{I18n.locale}"
           = flash[:alert]
       = yield
 
-      hr
+    hr
 
+    .container
       footer.text-muted
         ul.list-inline.pull-right
           - if current_identity.present?
@@ -48,4 +46,3 @@ html lang="#{I18n.locale}"
           li= link_to Settings.copyright.label.html_safe, Settings.copyright.url, class: 'link-plain'
           - Settings.footer_links.to_a.each do |link|
             li= footer_link(link)
-

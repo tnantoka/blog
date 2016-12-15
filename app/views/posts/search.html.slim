@@ -4,5 +4,5 @@
     small
       =< post_created(post)
       =< draft_label(post)
-  = highlight(post.content_text, params[:q])
+  .post-content= highlight(post.content_text, params[:q])
 = paginate @posts
