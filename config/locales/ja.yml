@@ -50,6 +50,8 @@ ja:
   versions:
     show:
       no_diffs_found: 差分はありません
+      unified: 統合
+      split: 分割
 
   devise:
     sessions:

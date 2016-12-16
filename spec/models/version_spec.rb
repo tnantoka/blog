@@ -39,6 +39,20 @@ RSpec.describe Version, :type => :model do
       it { should eq(diff) }
     end
 
+    describe '#split_diff' do
+      subject { version.split_diff.right }
+      let(:diff) do
+        <<-EOD.strip_heredoc
+          <div class="diff">
+            <ul>
+              <li class="ins"><ins><span class="symbol">+</span>first</ins></li>
+            </ul>
+          </div>
+        EOD
+      end
+      it { should eq(diff) }
+    end
+
     describe '#number' do
       subject { version.number }
       it { should eq('#1') }

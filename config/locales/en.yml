@@ -50,6 +50,8 @@ en:
   versions:
     show:
       no_diffs_found: No diffs found.
+      unified: Unified
+      split: Split
 
   devise:
     sessions:

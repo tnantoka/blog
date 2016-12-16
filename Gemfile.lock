@@ -112,7 +112,7 @@ GEM
     did_you_mean (0.9.6)
       interception
     diff-lcs (1.2.5)
-    diffy (3.0.7)
+    diffy (3.1.0)
     docile (1.1.5)
     domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
