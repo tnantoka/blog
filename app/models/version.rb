@@ -39,6 +39,10 @@ class Version < PaperTrail::Version
     cached(:_diff)
   end
 
+  def split_diff
+    cached(:_split_diff)
+  end
+
   def index
     persisted? ? super : item.versions.count
   end
@@ -48,10 +52,20 @@ class Version < PaperTrail::Version
   end
 
   private
+    def before
+      (persisted? ? reify.previous_version : reify.versions.last.try(:reify)).try(:content).to_s
+    end
+
+    def after
+      reify.content.to_s
+    end
+
     def _diff
-      before = (persisted? ? reify.previous_version : reify.versions.last.try(:reify)).try(:content).to_s
-      after = reify.content.to_s
       diff = Diffy::Diff.new(before, after, include_plus_and_minus_in_html: true)
       diff.to_s.present? ? diff.to_s(:html) : nil
+    end
+
+    def _split_diff
+      Diffy::SplitDiff.new(before, after, format: :html, include_plus_and_minus_in_html: true)
     end
 end
