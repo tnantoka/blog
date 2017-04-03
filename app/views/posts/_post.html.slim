@@ -2,6 +2,11 @@ section
   h1.post-title= link_to post.title, post, class: "#{'link-plain' if post_page?}#{'link-uncolored' if home_page?}"
   ul.list-inline.text-muted
     li= post_created(post)
+    - if post.created_at != post.updated_at
+      li
+        = "(#{t('.updated')}: "
+        = link_to post_updated(post), post_versions_path(post)
+        = ')'
     li= "#{post.count}#{t('.characters')}"
     li= draft_label(post)
   - if post_page? && post.toc.present?

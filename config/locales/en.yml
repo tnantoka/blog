@@ -25,12 +25,13 @@ en:
     post:
       edit: Edit
       delete: Delete
-      characters: characters
+      characters: ' characters'
       versions: Versions
       permalink: Permalink
       raw: Raw
       tweet: Tweet
       toc: TOC
+      updated: Updated
     show:
       sign_in_to_comment: Please sign in with GitHub to comment
     index:

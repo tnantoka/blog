@@ -31,6 +31,7 @@ ja:
       raw: ソース
       tweet: ツイート
       toc: 目次
+      updated: 更新
     show:
       sign_in_to_comment: コメントするにはGitHubログインしてください
     index:
