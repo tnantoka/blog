@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/turbolinks/turbolinks-classic.git
+  revision: 37a7c296232d20a61bd1946f600da7f2009189db
+  specs:
+    turbolinks (3.0.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -237,10 +244,10 @@ GEM
       sprockets-rails
     rails-assets-dropzone (4.3.0)
     rails-assets-google-code-prettify (1.0.5)
-    rails-assets-jquery (3.2.0)
+    rails-assets-jquery (3.2.1)
     rails-assets-jquery-autosize (1.18.18)
       rails-assets-jquery (>= 1.7)
-    rails-assets-mousetrap (1.6.0)
+    rails-assets-mousetrap (1.6.1)
     rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -339,8 +346,6 @@ GEM
     thread_safe (0.3.5)
     tilt (1.4.1)
     tins (1.3.5)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -415,6 +420,6 @@ DEPENDENCIES
   slim-rails
   spring
   therubyracer
-  turbolinks (= 2.5.3)
+  turbolinks!
   uglifier (>= 1.3.0)
   webmock

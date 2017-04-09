@@ -17,7 +17,7 @@ initDropzone = ->
     params:
       authenticity_token: $('meta[name=csrf-token]').prop('content')
     drop: ->
-      NProgress.start()
+      Turbolinks.ProgressBar.start()
     success: (file, json) ->
       text = if json.is_image
         "[![](#{json.path})](#{json.path})"
@@ -26,7 +26,7 @@ initDropzone = ->
       insert(text)
       preview()
     complete: ->
-      NProgress.done()
+      Turbolinks.ProgressBar.done()
 
 initMousetrap = ->
   Mousetrap.bind 'e', ->
@@ -67,7 +67,7 @@ $(document).on 'click', '.js_insert_link', (e) ->
   e.preventDefault()
   url = prompt('URL')
   if url
-    NProgress.start()
+    Turbolinks.ProgressBar.start()
     params =
       url: url
     $.ajax
@@ -77,7 +77,7 @@ $(document).on 'click', '.js_insert_link', (e) ->
       success: (json) ->
         insert("[#{json.title}](#{json.url})")
       complete: ->
-        NProgress.done()
+        Turbolinks.ProgressBar.done()
 
 $(document).on 'click', '.js_insert_table', (e) ->
   e.preventDefault()
