@@ -50,4 +50,5 @@ namespace :deploy do
 
 end
 
-set :rvm_ruby_version, '2.2.1'
+set :rbenv_type, :user
+set :rbenv_ruby, '2.2.1'

@@ -31,7 +31,7 @@ end
 
 group :development do
   gem 'bullet'
-  gem 'capistrano-rvm'
+  gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
