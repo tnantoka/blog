@@ -26,6 +26,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'did_you_mean'
+  gem 'pry-rails'
 end
 
 group :development do
