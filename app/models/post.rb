@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
 
-  scope :latest, -> { order(id: :desc) }
+  scope :latest, -> { order(updated_at: :desc) }
   scope :published, -> { where(published: true, template: false) }
   scope :draft, -> { where(published: false, template: false) }
   scope :template, -> { where(template: true) }
@@ -59,11 +59,11 @@ class Post < ActiveRecord::Base
   end
 
   def newer
-    Post.published.where('id > ?', self.id).take
+    Post.published.where('updated_at > ?', updated_at).latest.last
   end
 
   def older
-    Post.published.where('id < ?', self.id).latest.take
+    Post.published.where('updated_at < ?', updated_at).latest.first
   end
 
   private

@@ -22,6 +22,7 @@ require 'rails_helper'
 
 RSpec.describe Post, :type => :model do
   let(:markdown) { '# Header' }
+  let(:posts) { 10.times.map { |i| create(:post, :published, updated_at: Time.zone.at(i.second.ago.to_i)) } }
 
   describe 'validation' do
     subject { create(:post) }
@@ -59,15 +60,13 @@ RSpec.describe Post, :type => :model do
   end
 
   describe '#newer' do
-    let(:posts) { create_list(:post, 10, :published) }
-    let(:post) { posts.first }
+    let(:post) { posts[2] }
     subject { post.newer }
     it { should eq(posts[1]) }
   end
 
   describe '#older' do
-    let(:posts) { create_list(:post, 10, :published) }
-    let(:post) { posts.last }
+    let(:post) { posts[-3] }
     subject { post.older }
     it { should eq(posts[-2]) }
   end
