@@ -1,11 +1,9 @@
 ol.breadcrumb
   li= link_to @post.title, @post
   li= link_to t('posts.post.versions'), post_versions_path(@post)
-  li.active= link_to "#{@version.number} #{@version.reify.title}", post_version_path(@post, @version), class: 'link-plain'
-
-.post-content== @version.reify.render
-
-hr
+  li.active
+    = link_to "#{@version.number} #{@version.reify.title}", post_version_path(@post, @version), class: 'link-plain'
+    small=< post_updated(@version.reify)
 
 - if @version.diff.present?
   .clearfix.mb-1
@@ -30,3 +28,7 @@ hr
 - else
   .panel.panel-default.panel-no-shadow
     .panel-body= t('.no_diffs_found')
+
+hr
+
+.post-content== @version.reify.render
